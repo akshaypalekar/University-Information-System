@@ -6,5 +6,8 @@ session_start();
 <title>University Information System</title>
 <head></head>
 <body>
+    <div class="sidebar_container">
+
+    </div>
 </body>
 </html>
