@@ -8,5 +8,5 @@ if(isset($_SESSION['username']))
 {
 unset($_SESSION['username']);
 }
-header("location: Login.php");
+header("location: Login_page.php");
 ?>
