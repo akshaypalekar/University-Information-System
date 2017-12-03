@@ -5,7 +5,7 @@ session_start();
 <html>
 <title>Computer Science Dept</title>
 <head></head>
-<body>
+<body background="Images/nyit_bg.jpg" style ="background-size: 100%;">
     <?php
     $user_invalid=@$_SESSION['user_invalid'];
     if($user_invalid)
