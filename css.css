@@ -40,7 +40,7 @@
 .user_name{
     font-family: "Times New Roman", Times, serif;
     font-style: normal;
-    font-size: 20px;
+    font-size: 30px;
     color: white;
     position: absolute;
     left:5px;
@@ -59,6 +59,7 @@
 .nav_items{
   background-color: rgb(159, 159, 170);
 }
+
 /* Background for the Login Form */
 .form {
     position: relative;
