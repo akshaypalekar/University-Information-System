@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if(!isset($_SESSION['user_status'])){
+    header("location:Login_page.php");
+}
+?>
 <html>
 <title>University Information System</title>
 <head>

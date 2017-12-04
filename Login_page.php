@@ -22,15 +22,8 @@ session_start();
  <div class="thumbnail"><img src="Images/nyit_loginbox.png"/></div>
     <form method="post" action="Login_authentication.php">
         <div class="Login_container">
-            <!-- <label>
-                <b>Username</b>
-            </label> -->
             <input type = "text" placeholder="Enter Username" name="username" id="username" required>
-            <!-- <label>
-                <b>Password</b>
-            </label> -->
             <input type = "password" placeholder="Enter Password" name="pwd" id="pwd" required>
-            <!-- <input type = "submit" value="Login"> -->
             <button type="submit">Login</button> <br> <br>
             <a href="#">Forgot Password?</a>
         </div>
