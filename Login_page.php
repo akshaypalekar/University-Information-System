@@ -3,7 +3,7 @@
 session_start();
 ?>
 <html>
-<title>Computer Science Dept</title>
+<title>NYIT</title>
 <head>
 <link rel="stylesheet" type="text/css" href="css.css">
 </head>
