@@ -19,7 +19,7 @@ session_start();
     unset($_SESSION['user_invalid']);
     ?>
  <div class="form">
- <div class="thumbnail"><img src="Images/nyit_loginbox.jpg"></div>
+ <div class="thumbnail"><img src="Images/nyit_loginbox.png"/></div>
     <form method="post" action="Login_authentication.php">
         <div class="Login_container">
             <!-- <label>
@@ -31,7 +31,8 @@ session_start();
             </label> -->
             <input type = "password" placeholder="Enter Password" name="pwd" id="pwd" required>
             <!-- <input type = "submit" value="Login"> -->
-            <button type="submit">Login</button>
+            <button type="submit">Login</button> <br> <br>
+            <a href="#">Forgot Password?</a>
         </div>
     </form>
 </div>

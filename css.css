@@ -33,8 +33,10 @@
     background-color: rgb(206, 49, 49);
 }
 
+/* Background for the Login Form */
 .form {
     position: relative;
+    top: 100px;
     z-index: 1;
     background: #FFFFFF;
     max-width: 300px;
@@ -45,11 +47,12 @@
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     text-align: center;
+    box-shadow: 10px 10px 5px #00000060;
   }
 
+
   .form .thumbnail {
-    /* background: #EF3B3A; */
-    width: 150px;
+    width: 300px;
     height: 150px;
     margin: 0 auto 30px;
     padding: 50px 30px;
@@ -63,6 +66,8 @@
   .form .thumbnail img {
     display: block;
     width: 100%;
+    position: relative;
+    top: -15px;
   }
 
   .form input {
@@ -82,7 +87,7 @@
 
   .form button {
     outline: 0;
-    background: #EF3B3A;
+    background: #4C53EF;
     width: 100%;
     border: 0;
     padding: 15px;
