@@ -55,6 +55,10 @@
     right:180px;
     top:10px;
 }
+
+.nav_items{
+  background-color: rgb(159, 159, 170);
+}
 /* Background for the Login Form */
 .form {
     position: relative;
