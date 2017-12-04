@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 session_start();
+include 'Sidebar.php';
+include 'Header.php';
 if(!isset($_SESSION['user_status'])){
     header("location:Login_page.php");
 }
@@ -8,10 +10,10 @@ if(!isset($_SESSION['user_status'])){
 <html>
 <title>University Information System</title>
 <head>
-<?php include 'Header.php' ?>
-<?php include 'Sidebar.php' ?>
 <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 <body>
+<div class="main">
+</div>
 </body>
 </html>

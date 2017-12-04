@@ -14,5 +14,6 @@ if (document.getElementById) onload = function () {
 	setInterval ("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50)
 }
 </script>
+</div>
     </body>
 </html>
