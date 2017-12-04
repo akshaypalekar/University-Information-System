@@ -8,7 +8,7 @@ session_start();
 <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 
-<body background="Images/nyit_bg.jpg">
+<body background="Images/nyit_bg.jpg" style ="background-size: 100%;">
     <?php
     $user_invalid=@$_SESSION['user_invalid'];
     if($user_invalid)
