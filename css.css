@@ -1,4 +1,4 @@
-/* The side navigation menu */
+/*The side navigation menu*/
 .sidenav_container {
     height: 100%;
     width: 300px;
@@ -55,6 +55,7 @@
     right:180px;
     top:10px;
 }
+
 /* Background for the Login Form */
 .form {
     position: relative;

@@ -25,6 +25,7 @@ session_start();
             <input type = "text" placeholder="Enter Username" name="username" id="username" required>
             <input type = "password" placeholder="Enter Password" name="pwd" id="pwd" required>
             <button type="submit">Login</button> <br> <br>
+            <a href="New_user.php">New User?</a> <br>
             <a href="#">Forgot Password?</a>
         </div>
     </form>
