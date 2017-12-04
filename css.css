@@ -28,9 +28,13 @@
 
 /*Header*/
 .header_container{
-    width: 300px;
-    padding: 8px 8px 8px 32px;
-    background-color: rgb(206, 49, 49);
+    width: 90%;
+    position: relative;
+    left:290px;
+    top:-10px;
+    padding: 60px 8px 8px 32px;
+    background-color: rgb(64, 62, 226);
+    box-shadow: 0px 10px 5px #00000060;
 }
 
 .form {
