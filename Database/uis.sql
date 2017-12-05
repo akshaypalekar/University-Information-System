@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2017 at 01:15 AM
+-- Generation Time: Dec 05, 2017 at 08:50 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -21,6 +21,51 @@ SET time_zone = "+00:00";
 --
 -- Database: `uis`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `Course_Id` varchar(10) NOT NULL,
+  `Course_Name` text NOT NULL,
+  `Faculty_Id` int(11) NOT NULL,
+  `Course_Description` varchar(200) NOT NULL,
+  `Credits` int(11) NOT NULL,
+  `Course_Time` time NOT NULL,
+  `Status` text NOT NULL,
+  `Capacity` int(11) NOT NULL,
+  `Course_Level` tinytext,
+  `Course_Day` tinytext,
+  `Time_End` time DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`Course_Id`, `Course_Name`, `Faculty_Id`, `Course_Description`, `Credits`, `Course_Time`, `Status`, `Capacity`, `Course_Level`, `Course_Day`, `Time_End`) VALUES
+('CSCI690', 'Computer Networks', 6549875, 'it is about networks', 3, '15:15:00', 'Open', 30, 'Graduate', 'Wednesday', '17:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_enrollment`
+--
+
+CREATE TABLE `course_enrollment` (
+  `User_Id` varchar(10) NOT NULL,
+  `Course_Id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course_enrollment`
+--
+
+INSERT INTO `course_enrollment` (`User_Id`, `Course_Id`) VALUES
+('1145468', 'CSCI690');
 
 -- --------------------------------------------------------
 
@@ -103,6 +148,19 @@ INSERT INTO `users` (`User_Id`, `First_Name`, `Last_Name`, `Username`, `Pwd`, `A
 --
 
 --
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`Course_Id`);
+
+--
+-- Indexes for table `course_enrollment`
+--
+ALTER TABLE `course_enrollment`
+  ADD KEY `User_Id` (`User_Id`),
+  ADD KEY `FK_CourseID` (`Course_Id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -113,6 +171,17 @@ ALTER TABLE `students`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`User_Id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `course_enrollment`
+--
+ALTER TABLE `course_enrollment`
+  ADD CONSTRAINT `FK_CourseID` FOREIGN KEY (`Course_Id`) REFERENCES `courses` (`Course_Id`),
+  ADD CONSTRAINT `FK_StudentID` FOREIGN KEY (`User_Id`) REFERENCES `students` (`User_Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
