@@ -147,13 +147,34 @@
     cursor: pointer;
   }
 
-  .main{
-    margin-left: 300px;
-  }
-
   .search_course{
     width:500px;
     position: relative; 
     left:300px;
     top: -60px;
+  }
+
+  .Student_schedule{
+    width:600px;
+    position: relative; 
+    left:300px;
+    top: 20px;
+  }
+
+  .schedule{
+    border-collapse: collapse;
+    width: 100%;
+ }
+ th, td {
+  text-align: left;
+  padding: 10px;
+ }
+
+ tr:nth-child(even){
+   background-color: #f2f2f2
+  }
+
+  .course_list{
+    position: relative;
+    left:300px;
   }
