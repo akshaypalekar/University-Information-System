@@ -12,6 +12,7 @@ if($row>0){
     $status='logged in';
     $_SESSION['user_status']=$status;
     $_SESSION['name']=$data["First_Name"];
+    $_SESSION['userId']=$data["User_Id"];
 
     if($data["Account_Type"]=='Student'){
     header("location:Student_Homepage.php");
