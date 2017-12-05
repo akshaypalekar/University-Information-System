@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2017 at 08:50 PM
+-- Generation Time: Dec 06, 2017 at 12:45 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `courses` (
-  `Course_Id` varchar(10) NOT NULL,
+  `Course_Id` int(10) NOT NULL,
   `Course_Name` text NOT NULL,
   `Faculty_Id` int(11) NOT NULL,
   `Course_Description` varchar(200) NOT NULL,
@@ -47,7 +47,8 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`Course_Id`, `Course_Name`, `Faculty_Id`, `Course_Description`, `Credits`, `Course_Time`, `Status`, `Capacity`, `Course_Level`, `Course_Day`, `Time_End`) VALUES
-('CSCI690', 'Computer Networks', 6549875, 'it is about networks', 3, '15:15:00', 'Open', 30, 'Graduate', 'Wednesday', '17:00:00');
+(690, 'Computer Networks', 1234562, 'It is about networks', 3, '15:00:00', 'Open', 40, 'Graduate', 'Wednesday', '17:00:00'),
+(755, 'Artificial Intelligence', 7894562, 'AI', 3, '09:00:00', 'Open', 40, 'Graduate', 'Saturday', '12:00:00');
 
 -- --------------------------------------------------------
 
@@ -57,7 +58,7 @@ INSERT INTO `courses` (`Course_Id`, `Course_Name`, `Faculty_Id`, `Course_Descrip
 
 CREATE TABLE `course_enrollment` (
   `User_Id` varchar(10) NOT NULL,
-  `Course_Id` varchar(10) NOT NULL
+  `Course_Id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -65,7 +66,8 @@ CREATE TABLE `course_enrollment` (
 --
 
 INSERT INTO `course_enrollment` (`User_Id`, `Course_Id`) VALUES
-('1145468', 'CSCI690');
+('1145468', 755),
+('1145468', 690);
 
 -- --------------------------------------------------------
 
@@ -96,6 +98,7 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`User_Id`, `First_Name`, `Last_Name`, `Address`, `Username`, `Contact_Information`, `Emergency_Contact`, `Major`, `Course_Career`, `Total_Credit_Needed`, `Date_of_Birth`, `Security_Question`, `Security_Answer`, `Pwd`) VALUES
 ('1145468', 'Akshay', 'Palekar', 'kdjsalkjalksjd', 'django', 965358451, 965648752, 'CS', 'Gradutare', 0, '2017-12-04', 'What is your mothers name', 'Anjali', 'django456'),
+('1145480', 'Pooja', 'Manjeshwar', 'Ozone Park', 'poojapm', 986565457, 3698521471, 'CS', 'Graduate', 30, '2017-12-03', NULL, NULL, 'abcd'),
 ('1145874', 'Shreya', 'Sawant', 'kjflksdfjlkfj', 'ssawant', 965654215, 123658745, 'CS', 'Graduate', 30, '2017-12-03', 'Whats is your Mothers name', 'Mangala', 'shreya123');
 
 --
@@ -139,6 +142,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`User_Id`, `First_Name`, `Last_Name`, `Username`, `Pwd`, `Account_Type`) VALUES
 ('1145468', 'Akshay', 'Palekar', 'django', 'django456', 'Student'),
+('1145480', 'Pooja', 'Manjeshwar', 'poojapm', 'abcd', 'Student'),
 ('1145488', 'Akshay', 'Palekar', 'apalekar', 'akshay123', 'Student'),
 ('1145493', 'Pooja', 'Manjeshwar', 'pmanjeshwar', 'pooja123', 'Student'),
 ('1156584', 'Sandra', 'Kopecky', 'skopec', 'sandra123', 'Faculty');
@@ -157,8 +161,7 @@ ALTER TABLE `courses`
 -- Indexes for table `course_enrollment`
 --
 ALTER TABLE `course_enrollment`
-  ADD KEY `User_Id` (`User_Id`),
-  ADD KEY `FK_CourseID` (`Course_Id`);
+  ADD KEY `User_Id` (`User_Id`);
 
 --
 -- Indexes for table `students`
@@ -171,17 +174,6 @@ ALTER TABLE `students`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`User_Id`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `course_enrollment`
---
-ALTER TABLE `course_enrollment`
-  ADD CONSTRAINT `FK_CourseID` FOREIGN KEY (`Course_Id`) REFERENCES `courses` (`Course_Id`),
-  ADD CONSTRAINT `FK_StudentID` FOREIGN KEY (`User_Id`) REFERENCES `students` (`User_Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
