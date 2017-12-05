@@ -15,10 +15,6 @@ if(!isset($_SESSION['user_status'])){
 <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 <body>
-<div class="Student_Schedule">
-<?php
-
-?>
-</div>
+<div class="main"></div>
 </body>
 </html>

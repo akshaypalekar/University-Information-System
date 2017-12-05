@@ -146,10 +146,14 @@
     transition: all 0.3 ease;
     cursor: pointer;
   }
-<<<<<<< HEAD
-=======
 
   .main{
     margin-left: 300px;
   }
->>>>>>> 7e07068f087badbc2f765010ce0d1ef557a81439
+
+  .search_course{
+    width:500px;
+    position: relative; 
+    left:300px;
+    top: -60px;
+  }
