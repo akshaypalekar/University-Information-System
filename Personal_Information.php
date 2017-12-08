@@ -17,14 +17,11 @@ if(!isset($_SESSION['user_status'])){
 
 <div class="personal_info">
 <form action="" method="post">
- Address:  <button name = "edit" value="edit">Edit</button> <br><br>
-<input type = "text" name = "addr"><br><br>
+Address:  <button name = "edit" value="edit">Edit</button> <br><br>
 
 Cell Phone:  <button name = "edit" value="edit">Edit</button><br><br>
-<input type = "number" name = "cell"><br><br>
 
 Emergency Contact  <button name = "edit" value="edit">Edit</button><br><br>
-<input type = "number" name = "cell">
 </form>
 </div>
 </body>

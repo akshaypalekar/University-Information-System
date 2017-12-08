@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <?php
 session_start();
+if(isset($_SESSION['course_added'])){
+        echo "<script type='text/javascript'>alert('Course Added');</script>";
+        unset($_SESSION['course_added']);        
+}
 ?>
 <html>
 <title>NYIT</title>

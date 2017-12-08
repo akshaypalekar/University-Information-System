@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2017 at 12:45 AM
+-- Generation Time: Dec 08, 2017 at 06:09 PM
 -- Server version: 10.1.28-MariaDB
--- PHP Version: 5.6.32
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +25,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `First_Name` text NOT NULL,
+  `Last_Name` text NOT NULL,
+  `Username` varchar(20) NOT NULL,
+  `Password` varchar(20) NOT NULL,
+  `Admin_ID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`First_Name`, `Last_Name`, `Username`, `Password`, `Admin_ID`) VALUES
+('Akshay', 'Palekar', 'akshayp', 'akshay123', 1145488);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `courses`
 --
 
@@ -37,8 +58,8 @@ CREATE TABLE `courses` (
   `Course_Time` time NOT NULL,
   `Status` text NOT NULL,
   `Capacity` int(11) NOT NULL,
-  `Course_Level` tinytext,
-  `Course_Day` tinytext,
+  `Course_Level` text,
+  `Course_Day` text,
   `Time_End` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -47,8 +68,14 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`Course_Id`, `Course_Name`, `Faculty_Id`, `Course_Description`, `Credits`, `Course_Time`, `Status`, `Capacity`, `Course_Level`, `Course_Day`, `Time_End`) VALUES
-(690, 'Computer Networks', 1234562, 'It is about networks', 3, '15:00:00', 'Open', 40, 'Graduate', 'Wednesday', '17:00:00'),
-(755, 'Artificial Intelligence', 7894562, 'AI', 3, '09:00:00', 'Open', 40, 'Graduate', 'Saturday', '12:00:00');
+(620, 'Operating Systems', 1111112, 'OS', 3, '14:00:00', 'Open', 40, 'Graduate', 'Monday', '16:30:00'),
+(621, 'Programming Languages', 1111113, 'PL', 3, '14:00:00', 'Open', 40, 'Graduate', 'Monday', '16:40:00'),
+(641, 'Computer Architecture', 1111112, 'CA', 3, '12:45:00', 'Open', 35, 'Graduate', 'Tuesday', '14:45:00'),
+(651, 'Algorithm Concepts', 1111113, 'AC', 3, '09:35:00', 'Open', 40, 'Graduate', 'Wednesday', '12:35:00'),
+(665, 'Software Engineering', 1111111, 'SE', 3, '17:30:00', 'Open', 35, 'Graduate', 'Friday', '20:15:00'),
+(690, 'Computer Networks', 1111111, 'CN', 3, '17:45:00', 'Open', 40, 'Graduate', 'Tuesday', '20:15:00'),
+(755, 'Artificial Intelligence', 1111112, 'AI', 3, '12:45:00', 'Open', 45, 'Graduate', 'Saturday', '15:15:00'),
+(760, 'Database Systems', 1111111, 'DB', 3, '20:30:00', 'Open', 45, 'Graduate', 'Saturday', '23:15:00');
 
 -- --------------------------------------------------------
 
@@ -58,16 +85,47 @@ INSERT INTO `courses` (`Course_Id`, `Course_Name`, `Faculty_Id`, `Course_Descrip
 
 CREATE TABLE `course_enrollment` (
   `User_Id` varchar(10) NOT NULL,
-  `Course_Id` int(10) NOT NULL
+  `Course_Id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty`
+--
+
+CREATE TABLE `faculty` (
+  `User_Id` varchar(10) NOT NULL,
+  `First_Name` text NOT NULL,
+  `Last_Name` text NOT NULL,
+  `Username` varchar(20) NOT NULL,
+  `Contact_Information` bigint(20) NOT NULL,
+  `Speciality` text NOT NULL,
+  `Date_of_Birth` date NOT NULL,
+  `Security_Question` text NOT NULL,
+  `Security_Answer` text NOT NULL,
+  `Pwd` varchar(20) NOT NULL,
+  `Address` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `course_enrollment`
+-- Dumping data for table `faculty`
 --
 
-INSERT INTO `course_enrollment` (`User_Id`, `Course_Id`) VALUES
-('1145468', 755),
-('1145468', 690);
+INSERT INTO `faculty` (`User_Id`, `First_Name`, `Last_Name`, `Username`, `Contact_Information`, `Speciality`, `Date_of_Birth`, `Security_Question`, `Security_Answer`, `Pwd`, `Address`) VALUES
+('1111111', 'Taoufik', 'Ennoure', 'tennoure', 0, 'Software Engineering', '1980-03-01', '', '', '', ''),
+('1111112', 'Sandra', 'Kopecky', 'skopecky', 0, 'Artificial Intelligence', '1985-06-03', '', '', '', ''),
+('1111113', 'Wenjia', 'Li', 'wenjiali', 0, 'Networks', '1980-10-20', '', '', '', '');
+
+--
+-- Triggers `faculty`
+--
+DELIMITER $$
+CREATE TRIGGER `FacultyToUsers` AFTER INSERT ON `faculty` FOR EACH ROW BEGIN
+Insert into Users values (new.User_Id,new.First_Name,new.Last_Name,new.Username,new.Pwd,'Faculty');
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -97,9 +155,10 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`User_Id`, `First_Name`, `Last_Name`, `Address`, `Username`, `Contact_Information`, `Emergency_Contact`, `Major`, `Course_Career`, `Total_Credit_Needed`, `Date_of_Birth`, `Security_Question`, `Security_Answer`, `Pwd`) VALUES
-('1145468', 'Akshay', 'Palekar', 'kdjsalkjalksjd', 'django', 965358451, 965648752, 'CS', 'Gradutare', 0, '2017-12-04', 'What is your mothers name', 'Anjali', 'django456'),
-('1145480', 'Pooja', 'Manjeshwar', 'Ozone Park', 'poojapm', 986565457, 3698521471, 'CS', 'Graduate', 30, '2017-12-03', NULL, NULL, 'abcd'),
-('1145874', 'Shreya', 'Sawant', 'kjflksdfjlkfj', 'ssawant', 965654215, 123658745, 'CS', 'Graduate', 30, '2017-12-03', 'Whats is your Mothers name', 'Mangala', 'shreya123');
+('2222222', 'Akshay', 'Palekar', '', 'apalekar', 0, 0, 'CS', 'Graduate', 30, '1991-07-11', 'What is your Favourite Color?', 'Blue', 'akshay123'),
+('2222223', 'Pooja', 'Manjeshwar', '', 'pmanjeshwar', 0, 0, 'CS', 'Graduate', 30, '1992-03-19', '', '', ''),
+('2222224', 'Laukik', 'Panse', '', 'lpanse', 0, 0, 'CS', 'Graduate', 30, '1991-04-22', '', '', ''),
+('2222225', 'Shreya', 'Sawant', '', 'ssawant', 0, 0, 'CS', 'Graduate', 30, '1992-06-15', '', '', '');
 
 --
 -- Triggers `students`
@@ -141,15 +200,23 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`User_Id`, `First_Name`, `Last_Name`, `Username`, `Pwd`, `Account_Type`) VALUES
-('1145468', 'Akshay', 'Palekar', 'django', 'django456', 'Student'),
-('1145480', 'Pooja', 'Manjeshwar', 'poojapm', 'abcd', 'Student'),
-('1145488', 'Akshay', 'Palekar', 'apalekar', 'akshay123', 'Student'),
-('1145493', 'Pooja', 'Manjeshwar', 'pmanjeshwar', 'pooja123', 'Student'),
-('1156584', 'Sandra', 'Kopecky', 'skopec', 'sandra123', 'Faculty');
+('1111111', 'Taoufik', 'Ennoure', 'tennoure', '', 'Faculty'),
+('1111112', 'Sandra', 'Kopecky', 'skopecky', '', 'Faculty'),
+('1111113', 'Wenjia', 'Li', 'wenjiali', '', 'Faculty'),
+('2222222', 'Akshay', 'Palekar', 'apalekar', 'akshay123', 'Student'),
+('2222223', 'Pooja', 'Manjeshwar', 'pmanjeshwar', '', 'Student'),
+('2222224', 'Laukik', 'Panse', 'lpanse', '', 'Student'),
+('2222225', 'Shreya', 'Sawant', 'ssawant', '', 'Student');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`Admin_ID`);
 
 --
 -- Indexes for table `courses`
@@ -161,7 +228,8 @@ ALTER TABLE `courses`
 -- Indexes for table `course_enrollment`
 --
 ALTER TABLE `course_enrollment`
-  ADD KEY `User_Id` (`User_Id`);
+  ADD KEY `UserIdFK` (`User_Id`),
+  ADD KEY `CourseIdFK` (`Course_Id`);
 
 --
 -- Indexes for table `students`
@@ -174,6 +242,17 @@ ALTER TABLE `students`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`User_Id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `course_enrollment`
+--
+ALTER TABLE `course_enrollment`
+  ADD CONSTRAINT `CourseIdFK` FOREIGN KEY (`Course_Id`) REFERENCES `courses` (`Course_Id`),
+  ADD CONSTRAINT `UserIdFK` FOREIGN KEY (`User_Id`) REFERENCES `students` (`User_Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
