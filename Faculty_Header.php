@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html>
     <head>
     <link rel="stylesheet" type="text/css" href="css.css">
@@ -6,7 +9,7 @@
     <body>
         <div class="header_container">
             <span class="user_name">
-                <?php echo $_SESSION['name']."'s Student Center";?>
+                <?php echo $_SESSION['name']."'s Faculty Center";?>
             </span>
 <script type="text/javascript">
 document.write ('<span class="date_time">', new Date().toLocaleString(), '<\/span><\/p>')

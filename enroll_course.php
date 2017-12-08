@@ -27,11 +27,12 @@ if($row>0)
 $sql="INSERT INTO course_enrollment VALUES ('$userId','$Course_Id')";
 $result = mysqli_query($con,$sql);
 
-echo "<script type='text/javascript'>alert('Course Successfully Enrolled');</script>";
 
 $sql="UPDATE Courses SET Capacity = Capacity-1 WHERE Course_Id = '$Course_Id'";
 $reduce_capacity = mysqli_query($con,$sql);
 
+$course_added=1;
+$_SESSION['course_added']=$course_added;
 header('Location:'.$target_callback);
 
 }
