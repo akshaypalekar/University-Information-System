@@ -7,7 +7,7 @@ $last_name=$_REQUEST['lname']; // Saving password taken from login page to $pass
 $con=mysqli_connect('localhost','root',''); // making a connection to the database
 mysqli_select_db($con, 'uis'); 
 
-$sql="SELECT *  FROM students WHERE User_Id='$userid' and Last_Name='$last_name'";
+$sql="SELECT *  FROM users WHERE User_Id='$userid' and Last_Name='$last_name'";
 $row= mysqli_num_rows(mysqli_query($con, $sql));
 $data= mysqli_fetch_array(mysqli_query($con,$sql));
 if($row>0){

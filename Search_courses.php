@@ -12,6 +12,11 @@ if(isset($_SESSION['course_taken'])){
     unset($_SESSION['course_taken']);
 }
 
+if(isset($_SESSION['course_added'])){
+    echo "<script type='text/javascript'>alert('Course Successfully Added');</script>";
+    unset($_SESSION['course_added']);
+}
+
 ?>
 <html>
 <title>University Information System</title>
