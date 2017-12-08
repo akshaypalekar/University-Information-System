@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<?php
-session_start();
-echo "User ID ".$_SESSION['newuser_id'];
-?>
+
 <html>
 <title>Computer Science Dept</title>
 <head>
 <link rel="stylesheet" type="text/css" href="css.css">
 <script type="text/javascript" src="Js/script.js"></script>
 </head>
-<body>
-
+<body background="Images/nyit_bg.jpg" style ="background-size: 100%;">
+<div class="manage_password">
+ <div class="thumbnail"><img src="Images/nyit_loginbox.png"/></div>
 <form method="post" action="Manage_password_authen.php">
+
+<?php
+session_start();
+echo "User ID ".$_SESSION['newuser_id'];
+?>
+
 <table>
 <tr><td>Password </td>
 <td><input type = "text" name = "password" id = "password" onblur="javascript:checkPassword()" required> </td></tr>
-
-<tr><td></td>
-<td>Password must contain minimum seven letters, atleast one upper case, one lower case and one number</td></tr>
 
 <tr><td>Confirm Password </td>
 <td><input type = "text" name = "cpassword" id = "cpassword" onblur="javascript:checkPassword()" required> </td></tr>
@@ -37,9 +38,9 @@ echo "User ID ".$_SESSION['newuser_id'];
 </table> <br> <br>
 
 <button type="submit">Submit</button>
-
+</div>
 </form>
-
+</div>
 </body>
 
 </html>
