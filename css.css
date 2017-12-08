@@ -186,6 +186,14 @@
     top: 20px;
   }
 
+  .personal_info_table,th,td{
+    text-align: left;
+  }
+
+  .personal_info_table, tr:nth-child(odd){
+    background-color: #f2f2f2
+   }
+
   .new_user {
     position: relative;
     top: 100px;
