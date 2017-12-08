@@ -186,6 +186,14 @@
     top: 20px;
   }
 
+  .personal_info_table,th,td{
+    text-align: left;
+  }
+
+  .personal_info_table, tr:nth-child(odd){
+    background-color: #f2f2f2
+   }
+
   .new_user {
     position: relative;
     top: 100px;
@@ -311,6 +319,7 @@
     left:300px;
     top: 20px;
   }
+<<<<<<< HEAD
 
 
   .search_details{
@@ -319,3 +328,5 @@
     left:300px;
     top: 20px;
   }
+=======
+>>>>>>> 62909813d57a94b0328a20b47460b05399a4c5d3
