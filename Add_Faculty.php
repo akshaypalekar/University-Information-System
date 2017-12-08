@@ -12,9 +12,9 @@ session_start();
 </head>
 <body>
 
-<div class = "add_student">
+<div class = "add_faculty">
 
-<form action="Add_Student_authen.php" method="post">
+<form action="Add_Faculty_authen.php" method="post">
 <table>
 <tr>
 <td> User ID</td>
@@ -40,27 +40,10 @@ session_start();
 </tr> 
 
 <tr>
-<td> Major</td>
+<td> Speciality</td>
 <td>
-<input type = "text" name = "major" required></td> 
+<input type = "text" name = "speciality" required></td> 
 </tr> 
-
-<tr>
-<td> Course Career</td>
-<td>
-<input type="radio" name="course_career" value="graduate"> Graduate
-<input type="radio" name="course_career" value="undergraduate"> Undergraduate</td> 
-</tr> 
-
-<tr>
-<td> Total Credits Needed</td>
-<td>
-<input type="radio" name="credits" value="graduate_credit"> 30
-<input type="radio" name="credits" value="undergraduate_credit"> 40</td>
-</tr>
-<tr><td></td>
-<td>Graduate Credits = 30, Undergraduate Credits = 40</td></tr>
-
 
 <tr>
 <td> Date of Birth</td>

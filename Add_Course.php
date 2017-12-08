@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <?php
 session_start();
@@ -12,9 +10,7 @@ session_start();
 <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 <body>
-
 <div class = "add_course">
-
 <form action="Add_Course_authen.php" method="post">
 <table>
 <tr>
@@ -91,3 +87,4 @@ session_start();
 </form>
 </div>
 </body>
+</html>

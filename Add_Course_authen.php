@@ -31,14 +31,8 @@ if($course_level=='graduate'){
 else{
     $course_level = 'Undergraduate';
 }
-
-
 $sql="INSERT INTO courses 
 Values ('$courseid', '$course_name', '$faculty_id', '$course_desc', '$credits', '$time_start', '$status', '$capacity', '$course_level', '$course_day', '$time_end')"; 
-
-
-
 $row = mysqli_query($con, $sql);
 
-header("Location: Admin_Homepage.php");
 ?>
