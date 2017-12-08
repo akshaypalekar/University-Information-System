@@ -6,6 +6,11 @@
 <?php include 'Sidebar.php' ?>
 <link rel="stylesheet" type="text/css" href="css.css">
 </head>
+
 <body>
+<div class="Faculty_schedule">
+
+
+</div>
 </body>
 </html>

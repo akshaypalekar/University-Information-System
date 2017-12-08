@@ -11,7 +11,7 @@
     <div class="nav_items"><a href="#">Accounts</a></div>
     <div class="nav_items"><a href="#">Blackboard</a></div>
     <div class="nav_items"><a href="#">Career Services</a></div>
-    <div class="nav_items"><a href="#">Personal Information</a></div>
+    <div class="nav_items"><a href="Personal_Information.php">Personal Information</a></div>
     <div class="logout_button"><a href="Logout.php">Logout</a></div>
     </div>
 </body>
