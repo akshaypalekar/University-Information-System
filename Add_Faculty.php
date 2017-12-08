@@ -44,6 +44,12 @@ if(isset($_SESSION['faculty_added'])){
 </tr> 
 
 <tr>
+<td> Contact Info</td>
+<td>
+<input type = "number" name = "cont" required></td> 
+</tr>
+
+<tr>
 <td> Speciality</td>
 <td>
 <input type = "text" name = "speciality" required></td> 
@@ -54,6 +60,12 @@ if(isset($_SESSION['faculty_added'])){
 <td>
 <input type = "date" name = "dob" required></td> 
 </tr> 
+
+<tr>
+<td> Address</td>
+<td>
+<input type = "text" name = "addr" required></td> 
+</tr>
 
 </table> 
 

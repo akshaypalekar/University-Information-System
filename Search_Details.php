@@ -7,7 +7,7 @@ session_start();
 <title>NYIT</title>
 <head>
 <?php include 'Admin_Header.php' ?>
-<?php //include 'Admin_Sidebar.php' ?>
+<?php include 'Admin_Sidebar.php' ?>
 <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 <body>
@@ -41,9 +41,9 @@ session_start();
            $sql = "SELECT * FROM courses";
            $result = mysqli_query($con,$sql);
 
-           echo "<table class='search_table'><tr><th>Course ID</th><th>Course Name</th></tr>";
+           echo "<table class='display_details'><tr><th>Course ID</th><th>Course Name</th></tr>";
            while($row = mysqli_fetch_array($result)){
-           echo "<tr><td>" . $row['Course_Id'] . "</td><td>" . $row['Course_Name'] . "</td><td><a href='delete_course.php?Course_Id=".$row['Course_Id']."'>Delete</a></td></tr>";  
+           echo "<tr><td>" . $row['Course_Id'] . "</td><td>" . $row['Course_Name'] . "</td><td><a href='course_delete.php?Course_Id=".$row['Course_Id']."'>Delete</a></td></tr>";  
            }
            echo "</table>";
 
@@ -52,9 +52,9 @@ session_start();
             $sql = "SELECT * FROM faculty";
             $result = mysqli_query($con,$sql);
  
-            echo "<table  class='search_table'><tr><th>Faculty ID</th><th>Faculty Name</th></tr>";
+            echo "<table  class='display_details'><tr><th>Faculty ID</th><th>Faculty Name</th></tr>";
             while($row = mysqli_fetch_array($result)){
-            echo "<tr><td>" . $row['User_Id'] . "</td><td>" . $row['First_Name'] . "</td><td><a href='delete_course.php?User_Id=".$row['User_Id']."'>Delete</a></td></tr>";  
+            echo "<tr><td>" . $row['User_Id'] . "</td><td>" . $row['First_Name'] . "</td><td><a href='faculty_delete.php?User_Id=".$row['User_Id']."'>Delete</a></td></tr>";  
             }
             echo "</table>";
 
@@ -63,9 +63,9 @@ session_start();
             $sql = "SELECT * FROM students";
             $result = mysqli_query($con,$sql);
  
-            echo "<table class='search_table'><tr><th>Student ID</th><th>Student Name</th></tr>";
+            echo "<table class='display_details'><tr><th>Student ID</th><th>Student Name</th></tr>";
             while($row = mysqli_fetch_array($result)){
-            echo "<tr><td>" . $row['User_Id'] . "</td><td>" . $row['First_Name'] . "</td><td><a href='delete_course.php?User_Id=".$row['User_Id']."'>Delete</a></td></tr>";  
+            echo "<tr><td>" . $row['User_Id'] . "</td><td>" . $row['First_Name'] . "</td><td><a href='student_delete.php?User_Id=".$row['User_Id']."'>Delete</a></td></tr>";  
             }
             echo "</table>";
             
@@ -76,9 +76,9 @@ session_start();
             $sql = "SELECT * FROM courses WHERE Course_Id = '$id'";
             $result = mysqli_query($con,$sql);
  
-            echo "<table class='search_table'><tr><th>Course ID</th><th>Course Name</th></tr>";
+            echo "<table class='display_details'><tr><th>Course ID</th><th>Course Name</th></tr>";
             while($row = mysqli_fetch_array($result)){
-            echo "<tr><td>" . $row['Course_Id'] . "</td><td>" . $row['Course_Name'] . "</td><td><a href='delete_course.php?Course_Id=".$row['Course_Id']."'>Delete</a></td></tr>";  
+            echo "<tr><td>" . $row['Course_Id'] . "</td><td>" . $row['Course_Name'] . "</td><td><a href='course_delete.php?Course_Id=".$row['Course_Id']."'>Delete</a></td></tr>";  
             }
             echo "</table>";
             
@@ -87,9 +87,9 @@ session_start();
             $sql = "SELECT * FROM faculty WHERE User_Id = '$id'";
             $result = mysqli_query($con,$sql);
  
-            echo "<table class='search_table'><tr><th>Faculty ID</th><th>Faculty Name</th></tr>";
+            echo "<table class='display_details'><tr><th>Faculty ID</th><th>Faculty Name</th></tr>";
             while($row = mysqli_fetch_array($result)){
-            echo "<tr><td>" . $row['User_Id'] . "</td><td>" . $row['First_Name'] . "</td><td><a href='delete_course.php?User_Id=".$row['User_Id']."'>Delete</a></td></tr>";  
+            echo "<tr><td>" . $row['User_Id'] . "</td><td>" . $row['First_Name'] . "</td><td><a href='faculty_delete.php?User_Id=".$row['User_Id']."'>Delete</a></td></tr>";  
             }
             echo "</table>";
             
@@ -98,9 +98,9 @@ session_start();
             $sql = "SELECT * FROM students WHERE User_Id = '$id'";
             $result = mysqli_query($con,$sql);
  
-            echo "<table class='search_table'><tr><th>Student ID</th><th>Student Name</th></tr>";
+            echo "<table class='display_details'><tr><th>Student ID</th><th>Student Name</th></tr>";
             while($row = mysqli_fetch_array($result)){
-            echo "<tr><td>" . $row['User_Id'] . "</td><td>" . $row['First_Name'] . "</td><td><a href='delete_course.php?User_Id=".$row['User_Id']."'>Delete</a></td></tr>";  
+            echo "<tr><td>" . $row['User_Id'] . "</td><td>" . $row['First_Name'] . "</td><td><a href='student_delete.php?User_Id=".$row['User_Id']."'>Delete</a></td></tr>";  
             }
             echo "</table>";
                         

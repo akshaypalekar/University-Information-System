@@ -37,10 +37,29 @@ if(isset($_SESSION['student_added'])){
 <td>
 <input type = "text" name = "lname" required></td> 
 </tr>
+
+<tr>
+<td> Address</td>
+<td>
+<input type = "text" name = "addr" required></td> 
+</tr> 
+
 <tr>
 <td> Username</td>
 <td>
 <input type = "text" name = "uname" required></td> 
+</tr> 
+
+<tr>
+<td> Contact Info</td>
+<td>
+<input type = "number" name = "cont" required></td> 
+</tr> 
+
+<tr>
+<td> Emergency Contact</td>
+<td>
+<input type = "number" name = "emer" required></td> 
 </tr> 
 
 <tr>

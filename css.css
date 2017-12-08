@@ -319,7 +319,6 @@
     left:300px;
     top: 20px;
   }
-<<<<<<< HEAD
 
 
   .search_details{
@@ -328,5 +327,10 @@
     left:300px;
     top: 20px;
   }
-=======
->>>>>>> 62909813d57a94b0328a20b47460b05399a4c5d3
+
+  .display_details{
+    width:500px;
+    position: relative; 
+    left:300px;
+    top: 40px;
+  }
