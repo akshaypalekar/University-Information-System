@@ -185,3 +185,122 @@
     left:300px;
     top: 20px;
   }
+
+  .new_user {
+    position: relative;
+    top: 100px;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 300px;
+    margin: 0 auto 100px;
+    padding: 30px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-align: center;
+    box-shadow: 10px 10px 5px #00000060;
+  }
+
+  .new_user .thumbnail {
+    width: 300px;
+    height: 150px;
+    margin: 0 auto 30px;
+    padding: 50px 30px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    box-sizing: border-box;
+  }
+
+  .new_user .thumbnail img {
+    display: block;
+    width: 100%;
+    position: relative;
+    top: -15px;
+  }
+
+  .new_user button {
+    outline: 0;
+    background: #4C53EF;
+    width: 50%;
+    border: 0;
+    padding: 15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+
+
+  .manage_password {
+    position: relative;
+    top: 100px;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 500px;
+    margin: 0 auto 100px;
+    padding: 30px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-align: center;
+    box-shadow: 10px 10px 5px #00000060;
+  }
+
+  .manage_password .thumbnail {
+    width: 300px;
+    height: 150px;
+    margin: 0 auto 30px;
+    padding: 50px 30px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    box-sizing: border-box;
+  }
+
+  .manage_password .thumbnail img {
+    display: block;
+    width: 100%;
+    position: relative;
+    top: -15px;
+  }
+
+  .manage_password button {
+    outline: 0;
+    background: #4C53EF;
+    width: 50%;
+    border: 0;
+    padding: 15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+
+  .add_student{
+    width:500px;
+    position: relative; 
+    left:300px;
+    top: 20px;
+  }
+
+  .add_course{
+    width:500px;
+    position: relative; 
+    left:300px;
+    top: 20px;
+  }

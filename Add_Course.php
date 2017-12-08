@@ -1,15 +1,21 @@
 
 
+<!DOCTYPE html>
+<?php
+session_start();
+?>
 <html>
 <title>NYIT</title>
 <head>
+<?php include 'Admin_Header.php' ?>
+<?php include 'Admin_Sidebar.php' ?>
 <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 <body>
 
-<div class = "a">
+<div class = "add_course">
 
-<form action="Add_Course_authen.php" method="get">
+<form action="Add_Course_authen.php" method="post">
 <table>
 <tr>
 <td> Course ID</td>
@@ -70,7 +76,7 @@
 <tr>
 <td> Course Day</td>
 <td>
-<input type = "text" name = "cday" required></td> 
+<input type = "text" name = "course_day" required></td> 
 </tr> 
 
 <tr>
