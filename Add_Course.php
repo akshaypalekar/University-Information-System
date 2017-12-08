@@ -84,6 +84,13 @@ if(isset($_SESSION['course_added'])){
 <td>
 <input type="time" name="time_end" >
 </tr> 
+
+<tr>
+<td> Course Fees</td>
+<td>
+<input type = "text" name = "course_fees" required></td> 
+</tr> 
+
 </table> 
 
 <button type="reset" value="Reset">Clear</button>

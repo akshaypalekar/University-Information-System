@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2017 at 06:09 PM
+-- Generation Time: Dec 08, 2017 at 07:35 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -56,26 +56,30 @@ CREATE TABLE `courses` (
   `Course_Description` varchar(200) NOT NULL,
   `Credits` int(11) NOT NULL,
   `Course_Time` time NOT NULL,
-  `Status` text NOT NULL,
+  `Course_Status` text NOT NULL,
   `Capacity` int(11) NOT NULL,
   `Course_Level` text,
   `Course_Day` text,
-  `Time_End` time DEFAULT NULL
+  `Time_End` time DEFAULT NULL,
+  `Course_Fees` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`Course_Id`, `Course_Name`, `Faculty_Id`, `Course_Description`, `Credits`, `Course_Time`, `Status`, `Capacity`, `Course_Level`, `Course_Day`, `Time_End`) VALUES
-(620, 'Operating Systems', 1111112, 'OS', 3, '14:00:00', 'Open', 40, 'Graduate', 'Monday', '16:30:00'),
-(621, 'Programming Languages', 1111113, 'PL', 3, '14:00:00', 'Open', 40, 'Graduate', 'Monday', '16:40:00'),
-(641, 'Computer Architecture', 1111112, 'CA', 3, '12:45:00', 'Open', 35, 'Graduate', 'Tuesday', '14:45:00'),
-(651, 'Algorithm Concepts', 1111113, 'AC', 3, '09:35:00', 'Open', 40, 'Graduate', 'Wednesday', '12:35:00'),
-(665, 'Software Engineering', 1111111, 'SE', 3, '17:30:00', 'Open', 35, 'Graduate', 'Friday', '20:15:00'),
-(690, 'Computer Networks', 1111111, 'CN', 3, '17:45:00', 'Open', 40, 'Graduate', 'Tuesday', '20:15:00'),
-(755, 'Artificial Intelligence', 1111112, 'AI', 3, '12:45:00', 'Open', 45, 'Graduate', 'Saturday', '15:15:00'),
-(760, 'Database Systems', 1111111, 'DB', 3, '20:30:00', 'Open', 45, 'Graduate', 'Saturday', '23:15:00');
+INSERT INTO `courses` (`Course_Id`, `Course_Name`, `Faculty_Id`, `Course_Description`, `Credits`, `Course_Time`, `Course_Status`, `Capacity`, `Course_Level`, `Course_Day`, `Time_End`, `Course_Fees`) VALUES
+(606, 'Distributed Systems', 1111111, 'DS', 3, '17:00:00', 'Open', 40, 'Graduate', 'Wednesday', '19:00:00', 3645),
+(620, 'Operating Systems', 1111112, 'OS', 3, '14:00:00', 'Open', 40, 'Graduate', 'Monday', '16:30:00', 3645),
+(621, 'Programming Languages', 1111113, 'PL', 3, '14:00:00', 'Open', 40, 'Graduate', 'Monday', '16:40:00', 3645),
+(640, 'Theory of Computation', 1111112, 'TCC', 3, '16:00:00', 'Open', 40, 'Graduate', 'Friday', '18:30:00', 3645),
+(641, 'Computer Architecture', 1111112, 'CA', 3, '12:45:00', 'Open', 35, 'Graduate', 'Tuesday', '14:45:00', 3645),
+(651, 'Algorithm Concepts', 1111113, 'AC', 3, '09:35:00', 'Open', 40, 'Graduate', 'Wednesday', '12:35:00', 3645),
+(665, 'Software Engineering', 1111111, 'SE', 3, '17:30:00', 'Open', 35, 'Graduate', 'Friday', '20:15:00', 3645),
+(690, 'Computer Networks', 1111111, 'CN', 3, '17:45:00', 'Open', 40, 'Graduate', 'Tuesday', '20:15:00', 3645),
+(755, 'Artificial Intelligence', 1111112, 'AI', 3, '12:45:00', 'Open', 45, 'Graduate', 'Saturday', '15:15:00', 3645),
+(760, 'Database Systems', 1111111, 'DB', 3, '20:30:00', 'Open', 45, 'Graduate', 'Saturday', '23:15:00', 3645),
+(860, 'Special Topics', 1111111, 'special topics', 3, '16:00:00', 'Open', 30, 'Graduate', 'Thursday', '18:00:00', 3645);
 
 -- --------------------------------------------------------
 
@@ -95,7 +99,7 @@ CREATE TABLE `course_enrollment` (
 --
 
 CREATE TABLE `faculty` (
-  `User_Id` varchar(10) NOT NULL,
+  `User_Id` int(10) NOT NULL,
   `First_Name` text NOT NULL,
   `Last_Name` text NOT NULL,
   `Username` varchar(20) NOT NULL,
@@ -113,9 +117,9 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`User_Id`, `First_Name`, `Last_Name`, `Username`, `Contact_Information`, `Speciality`, `Date_of_Birth`, `Security_Question`, `Security_Answer`, `Pwd`, `Address`) VALUES
-('1111111', 'Taoufik', 'Ennoure', 'tennoure', 0, 'Software Engineering', '1980-03-01', '', '', '', ''),
-('1111112', 'Sandra', 'Kopecky', 'skopecky', 0, 'Artificial Intelligence', '1985-06-03', '', '', '', ''),
-('1111113', 'Wenjia', 'Li', 'wenjiali', 0, 'Networks', '1980-10-20', '', '', '', '');
+(1111111, 'Taoufik', 'Ennoure', 'tennoure', 0, 'Software Engineering', '1980-03-01', '', '', '', ''),
+(1111112, 'Sandra', 'Kopecky', 'skopecky', 0, 'Artificial Intelligence', '1985-06-03', '', '', '', ''),
+(1111113, 'Wenjia', 'Li', 'wenjiali', 0, 'Networks', '1980-10-20', '', '', '', '');
 
 --
 -- Triggers `faculty`
@@ -222,7 +226,8 @@ ALTER TABLE `admin`
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
-  ADD PRIMARY KEY (`Course_Id`);
+  ADD PRIMARY KEY (`Course_Id`),
+  ADD KEY `FacultyFK` (`Faculty_Id`);
 
 --
 -- Indexes for table `course_enrollment`
@@ -230,6 +235,12 @@ ALTER TABLE `courses`
 ALTER TABLE `course_enrollment`
   ADD KEY `UserIdFK` (`User_Id`),
   ADD KEY `CourseIdFK` (`Course_Id`);
+
+--
+-- Indexes for table `faculty`
+--
+ALTER TABLE `faculty`
+  ADD PRIMARY KEY (`User_Id`);
 
 --
 -- Indexes for table `students`
@@ -246,6 +257,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `courses`
+--
+ALTER TABLE `courses`
+  ADD CONSTRAINT `FacultyFK` FOREIGN KEY (`Faculty_Id`) REFERENCES `faculty` (`User_Id`);
 
 --
 -- Constraints for table `course_enrollment`
