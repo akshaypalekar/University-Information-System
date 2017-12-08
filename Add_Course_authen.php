@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$target_callback=$_SERVER['HTTP_REFERER'];
 $courseid = $_POST['courseid'];
 $course_name = $_POST['cname'];
 $faculty_id = $_POST['faculty_id'];
@@ -35,4 +35,7 @@ $sql="INSERT INTO courses
 Values ('$courseid', '$course_name', '$faculty_id', '$course_desc', '$credits', '$time_start', '$status', '$capacity', '$course_level', '$course_day', '$time_end')"; 
 $row = mysqli_query($con, $sql);
 
+header('Location:'.$target_callback);
+$course_added = 1;
+$_SESSION['course_added']=$course_added;
 ?>

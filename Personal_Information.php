@@ -15,6 +15,7 @@ if(!isset($_SESSION['user_status'])){
 </head>
 <body>
 <div class="personal_info">
+<<<<<<< HEAD
 <?php
 $userId = $_SESSION['userId'];
 $con=mysqli_connect('localhost','root','');
@@ -43,13 +44,20 @@ echo "</table>";
 <!-- <form action="" method="post">
  Address:  <button name = "edit" value="edit">Edit</button> <br><br>
 <input type = "text" name = "addr"><br><br>
+=======
+<form action="" method="post">
+Address:  <button name = "edit" value="edit">Edit</button> <br><br>
+>>>>>>> 434241a97ba49406bf1021b10e986d7f1a17088b
 
 Cell Phone:  <button name = "edit" value="edit">Edit</button><br><br>
-<input type = "number" name = "cell"><br><br>
 
 Emergency Contact  <button name = "edit" value="edit">Edit</button><br><br>
+<<<<<<< HEAD
 <input type = "number" name = "cell">
 </form> -->
+=======
+</form>
+>>>>>>> 434241a97ba49406bf1021b10e986d7f1a17088b
 </div>
 </body>
 </html>

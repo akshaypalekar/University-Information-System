@@ -18,10 +18,10 @@ echo "User ID ".$_SESSION['newuser_id'];
 
 <table>
 <tr><td>Password </td>
-<td><input type = "text" name = "password" id = "password" onblur="javascript:checkPassword()" required> </td></tr>
+<td><input type = "password" name = "password" id = "password" onblur="javascript:checkPassword()" required> </td></tr>
 
 <tr><td>Confirm Password </td>
-<td><input type = "text" name = "cpassword" id = "cpassword" onblur="javascript:checkPassword()" required> </td></tr>
+<td><input type = "password" name = "cpassword" id = "cpassword" onblur="javascript:checkPassword()" required> </td></tr>
 
 <tr><td>Select a Security Question </td>
 <td>

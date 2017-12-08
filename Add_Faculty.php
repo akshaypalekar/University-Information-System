@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <?php
 session_start();
+if(isset($_SESSION['faculty_added'])){
+        echo "<script type='text/javascript'>alert('Faculty Added');</script>";
+        unset($_SESSION['faculty_added']);        
+}
 ?>
 <html>
 <title>NYIT</title>

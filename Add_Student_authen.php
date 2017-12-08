@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$target_callback=$_SERVER['HTTP_REFERER'];
 $userid = $_POST['userid'];
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
@@ -32,4 +32,8 @@ $sql="INSERT INTO `students`(`User_Id`, `First_Name`, `Last_Name`, `Address`, `U
 VALUES ('$userid','$fname','$lname','','$username','','','$major','$course_career','$credits','$dob','','','')";
 $row=mysqli_query($con, $sql);
 
+
+header('Location:'.$target_callback);
+$student_added = 1;
+$_SESSION['student_added']=$student_added;
 ?>

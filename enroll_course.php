@@ -19,7 +19,6 @@ $row = mysqli_num_rows(mysqli_query($con,$sql));
 
 if($row>0)
 {
-    //echo "<script type='text/javascript'>alert('Course Already taken');</script>";
     $course_taken=1;
     $_SESSION['course_taken']=$course_taken;
     header('Location:'.$target_callback);
